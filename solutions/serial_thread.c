@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define NUM_HELLOS 200000
+#define NUM_HELLOS 2000000
 
 int main(){
     float startTime = (float) clock()/CLOCKS_PER_SEC;
@@ -11,4 +11,5 @@ int main(){
     }
     float endTime = (float) clock()/CLOCKS_PER_SEC;
     printf("Total Execution Time: %f", endTime-startTime);
+    return 0;
 }
