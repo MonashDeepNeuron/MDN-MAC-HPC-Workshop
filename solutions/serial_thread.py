@@ -1,11 +1,11 @@
 import time
 
-NUM = 200000
+NUM_HELLOS = 2000000
 
 if __name__ == '__main__':
     t1 = time.time()
-    for _ in range(NUM//2):
-        print('Hello World!', end='\r')
+    for i in range(NUM_HELLOS):
+        print('Hello World x', i, end='\r')
     t2 = time.time()
 
     print('Total Execution Time: ', t2-t1)
