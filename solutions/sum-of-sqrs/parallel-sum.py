@@ -3,7 +3,7 @@ import time
 from utils import chunk_range
 
 MAX_INT = 100000000
-NUM_PROCS = 16
+NUM_PROCS = 2
 
 # define a function that calculates the sum of squares of a range of numbers
 def sum_of_squares(start, end):
@@ -29,6 +29,5 @@ if __name__ == '__main__':
     end = time.time()
 
     # print the results and the time elapsed
-    print(f"Results: {results}")
-    print(f"Sum: {sum(results)}")
+    print(f"Result: {sum(results)}")
     print(f"Time elapsed: {end - start} seconds")
