@@ -1,10 +1,9 @@
 import time
-import math
 from multiprocessing import Pool
 from utils import generate_random_list, merge
 
 ARR_N = 500000
-NUM_PROCS = 1
+NUM_PROCS = 4
 
 def merge(numbers, l1, r1, l2, r2):
     sorted_num = [0] * (r2 - l1 + 1) 
@@ -49,7 +48,7 @@ def merge_lists(v1, v2):
 
 
 def parallel_merge(v):
-    m = len(v) // 2 - 1
+    m = (len(v) // 2) - 1
     return merge(v, 0, m, m + 1, len(v)-1)
 
 
@@ -59,7 +58,7 @@ if __name__ == "__main__":
     #Create a list of random integers
     values = generate_random_list(ARR_N)
 
-    chunk_size = math.ceil(len(values) / NUM_PROCS)
+    chunk_size = len(values)// NUM_PROCS
 
     # Separate input into array of arrays
     chunks = [values[i:i + chunk_size] for i in range(0, len(values), chunk_size)]
@@ -69,7 +68,7 @@ if __name__ == "__main__":
     chunks = pool.map(parallel_mergesort, chunks)
 
     # chunks is an array of arrays containing the returned sorted chunk of each processor.
-    # Here we concatenate each two arrays and merge them parallel. Repeat this process 
+    # Here we concatenate the two arrays and merge them in parallel. Repeat this process 
     # until only 2 arrays are left.
     while(len(chunks) > 2):
         data=[]
@@ -91,6 +90,6 @@ if __name__ == "__main__":
     
     #print(final)
     elapsed = time.time()
-    print('Time taken MultiProcess :', elapsed - started)
+    print(f'Total Execution Time: {elapsed - started}')
 
     pool.close()
