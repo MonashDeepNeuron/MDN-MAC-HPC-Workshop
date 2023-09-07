@@ -8,4 +8,4 @@ if __name__ == '__main__':
         print('Hello World x', i, end='\r')
     t2 = time.time()
 
-    print('Total Execution Time: ', t2-t1)
+    print(f'Total Execution Time: {t2-t1}')

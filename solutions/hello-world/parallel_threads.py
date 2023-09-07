@@ -1,7 +1,7 @@
 import threading
 import time
 
-NUM = 200000
+NUM = 2000000
 
 def print_thread1(num):
     for _ in range(num):

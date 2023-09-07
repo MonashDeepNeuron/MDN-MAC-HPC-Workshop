@@ -2,7 +2,7 @@ import time
 from multiprocessing import Pool
 
 NUM_HELLOS = 2000000
-NUM_PROCS = 8
+NUM_PROCS = 2
 
 def print_hello(i):
     print('Hello World x', i, end='\r')
